@@ -1,28 +1,38 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    登录
+    <hr />
+    <form @submit.prevent="onSubmit">
+      <label>
+        <span>用户名</span>
+        <input type="text" v-model="user.username" />
+      </label>
+      <label>
+        <span>密码</span>
+        <input type="password" v-model="user.password" />
+      </label>
+      <button type="submit">登录</button>
+    </form>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  name: "App",
+  data() {
+    return {
+      user: {
+        username: "",
+        password: "",
+      },
+      x: [],
+    };
+  },
+  components: {},
+  methods: {
+    onSubmit() {
+      console.log(this.user);
+    },
+  },
+};
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
